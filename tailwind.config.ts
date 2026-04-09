@@ -15,33 +15,27 @@ const config: Config = {
 
         primary: {
           DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          foreground: "hsl(var(--primary-foreground))"
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          foreground: "hsl(var(--secondary-foreground))"
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "hsl(var(--accent))"
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
+          foreground: "hsl(var(--muted-foreground))"
+        }
       },
       fontFamily: {
         heading: ["Anton", "ui-sans-serif", "system-ui", "sans-serif"],
-        body: ["Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
-      },
-      borderRadius: {
-        lg: "1.25rem",
-        xl: "1.5rem",
-        "2xl": "1.25rem"
+        body: ["Montserrat", "ui-sans-serif", "system-ui", "sans-serif"]
       }
-    },
+    }
   },
-  plugins: [],
+  plugins: []
 };
 
 export default config;

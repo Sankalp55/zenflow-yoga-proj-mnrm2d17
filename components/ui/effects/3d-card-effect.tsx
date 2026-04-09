@@ -1,39 +1,25 @@
 import * as React from "react";
 
-export type CardContainerProps = React.HTMLAttributes<HTMLDivElement> & {
-  containerClassName?: string;
-};
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-export function CardContainer({
-  className,
-  containerClassName,
-  ...props
-}: CardContainerProps) {
-  return (
-    <div className={containerClassName}>
-      <div className={className} {...props} />
-    </div>
-  );
-}
-
-export type CardBodyProps = React.HTMLAttributes<HTMLDivElement>;
-
-export function CardBody({ className, ...props }: CardBodyProps) {
+/**
+ * Minimal, build-safe exports expected by blocks.
+ * These are lightweight wrappers (no 3D effect) to satisfy imports.
+ */
+export function CardContainer({ className, ...props }: DivProps) {
   return <div className={className} {...props} />;
 }
 
-export type CardItemProps = React.HTMLAttributes<HTMLDivElement> & {
+export function CardBody({ className, ...props }: DivProps) {
+  return <div className={className} {...props} />;
+}
+
+export type CardItemProps = DivProps & {
   translateZ?: number | string;
-  as?: React.ElementType;
+  as?: keyof JSX.IntrinsicElements;
 };
 
-export function CardItem({
-  as: Comp = "div",
-  className,
-  // translateZ is accepted for API compatibility with common 3D card implementations
-  // but is not required for build correctness.
-  translateZ: _translateZ,
-  ...props
-}: CardItemProps) {
+export function CardItem({ as, className, ...props }: CardItemProps) {
+  const Comp: any = as ?? "div";
   return <Comp className={className} {...props} />;
 }

@@ -1,312 +1,221 @@
-import { HeroSpotlight } from '@/components/blocks/HeroSpotlight'
-import { FeaturesGrid } from '@/components/blocks/FeaturesGrid'
+import { HeroGradientBlob } from '@/components/blocks/HeroGradientBlob'
+import { StatsCounter } from '@/components/blocks/StatsCounter'
+import { StickyScroll as StickyScrollReveal } from '@/components/ui/effects/StickyScrollReveal'
 import { TeamGrid } from '@/components/blocks/TeamGrid'
-import { PricingTable } from '@/components/blocks/PricingTable'
-import { TestimonialsAnimated } from '@/components/blocks/TestimonialsAnimated'
-import { CTABanner } from '@/components/blocks/CTABanner'
 import { ParallaxScroll } from '@/components/ui/effects/ParallaxScroll'
-import { TracingBeam } from '@/components/ui/effects/TracingBeam'
+import { TestimonialsAnimated } from '@/components/blocks/TestimonialsAnimated'
+import { CTASparkles } from '@/components/blocks/CTASparkles'
 
 export default function HomePage() {
   return (
-    <div>
-      <HeroSpotlight
-        headline="Breathe. Warmth. Stillness."
-        subheadline="ZenFlow is an earthy, light-filled studio in Austin, TX offering hot yoga, meditation, breathwork, and private sessions—designed to help you feel grounded in your body and calm in your mind."
+    <div className="bg-background text-foreground">
+      <HeroGradientBlob
+        badge="Austin • Hot Yoga • Breathwork • Meditation"
+        headline="Find your steady—hot yoga, breathwork, and meditation in Austin."
+        subheadline="ZenFlow is a warm, plant-filled studio for strong bodies and calm minds. Drop in for heat, stay for breath, leave lighter."
         primaryCta={{ label: 'View Class Schedule', href: '/classes' }}
-        secondaryCta={{ label: 'Start with a Trial', href: '/pricing#trial' }}
+        secondaryCta={{ label: 'Try Your First Week', href: '/pricing' }}
       />
 
-      <section className="py-16 md:py-24 px-4 md:px-8">
+      <section className="py-16 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-5">
-              <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-4xl md:text-5xl">
-                Your practice, organized by intention
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <div className="rounded-3xl border bg-card/80 backdrop-blur shadow-sm p-8">
+              <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-3xl md:text-4xl">
+                Your practice, simplified
               </h2>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                Some days you want heat and momentum. Some days you want softness, longer holds, and
-                a slower nervous system. ZenFlow is built around that reality—clear class formats,
-                supportive cues, and options that help you stay consistent without burning out.
+                ZenFlow is designed for consistency. We keep the room warm (not punishing), the cues clear,
+                and the pace grounded—so you can build strength, mobility, and focus without the “performative”
+                vibe. If you’re new to heat, we’ll help you pace, rest, and modify from day one.
               </p>
-
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                {[
-                  { label: 'Hot Yoga', detail: 'Infrared warmth, steady pacing' },
-                  { label: 'Meditation', detail: 'Guided + silent sits' },
-                  { label: 'Breathwork', detail: 'Nervous-system reset' },
-                  { label: 'Privates', detail: '1:1 sessions tailored to you' },
-                ].map((h) => (
-                  <div
-                    key={h.label}
-                    className="rounded-2xl border border-border bg-card shadow-sm p-4"
-                  >
-                    <div className="text-sm text-muted-foreground uppercase tracking-wide">
-                      {h.label}
-                    </div>
-                    <div className="mt-1 font-medium">{h.detail}</div>
-                  </div>
-                ))}
+              <div className="mt-8">
+                <StatsCounter
+                  stats={[
+                    { label: 'Hot Yoga', value: 95, suffix: '–100°F' },
+                    { label: 'Meditation', value: 7, suffix: ' days/wk' },
+                    { label: 'Breathwork', value: 1, suffix: '+ /wk' },
+                    { label: 'Private Sessions', value: 1, suffix: ':1' },
+                  ]}
+                />
               </div>
             </div>
 
-            <div className="lg:col-span-7">
-              <TracingBeam>
-                <div className="space-y-4">
-                  {[
+            <div className="rounded-3xl border bg-muted p-8">
+              <h3 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-2xl md:text-3xl">
+                A weekly rhythm that meets you where you are
+              </h3>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                Choose heat for strength, stillness for clarity, or breath to reset your nervous system.
+                Our schedule is intentionally repetitive—so your practice becomes automatic.
+              </p>
+
+              <div className="mt-8">
+                <StickyScrollReveal
+                  content={[
                     {
-                      title: 'Hot Flow',
+                      title: 'Hot Flow (All Levels)',
                       description:
-                        'Heat + vinyasa to build strength and clarity. Expect steady sequences and grounded transitions.',
-                      meta: '45–60 min • All levels',
+                        'Dynamic vinyasa in a heated room—build strength, balance, and stamina with options offered throughout. (60 min • Medium • Energy + mobility)',
                     },
                     {
-                      title: 'Slow Heat + Deep Stretch',
+                      title: 'Hot Slow + Deep Stretch',
                       description:
-                        'Long holds, mobility, and breath-led pacing in gentle warmth—ideal for recovery and flexibility.',
-                      meta: '60 min • Beginner-friendly',
+                        'Longer holds, mindful transitions, and deep opening in gentle heat to unwind tight hips and shoulders. (75 min • Low • Recovery + flexibility)',
                     },
                     {
-                      title: 'Meditation Studio',
+                      title: 'Breathwork Lab',
                       description:
-                        'Guided meditation with journaling prompts and a quiet closing. Come as you are—no experience needed.',
-                      meta: '30–45 min • Low intensity',
+                        'Guided pranayama and modern breath techniques with integration—calm focus without forcing. (45 min • Low • Stress reset)',
                     },
                     {
-                      title: 'Breathwork Reset',
+                      title: 'Meditation + Sound',
                       description:
-                        'A structured breath practice to downshift stress and increase focus. Includes integration time.',
-                      meta: '45 min • Moderate intensity',
+                        'Breath-led meditation with bowls and subtle soundscapes—practice returning to center. (45 min • Very low • Clarity + sleep)',
                     },
-                    {
-                      title: 'Private Sessions',
-                      description:
-                        '1:1 yoga, breathwork, or a blend—built around your goals, schedule, and body.',
-                      meta: '60–90 min • By appointment',
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="rounded-2xl border border-border bg-card shadow-sm p-6 hover:shadow-md transition-shadow"
-                    >
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                        <h3 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-2xl">
-                          {item.title}
-                        </h3>
-                        <div className="text-sm text-muted-foreground">{item.meta}</div>
-                      </div>
-                      <p className="mt-3 text-muted-foreground leading-relaxed">{item.description}</p>
-                      <div className="mt-4">
-                        <a
-                          className="inline-flex items-center justify-center rounded-xl border border-border bg-muted px-4 py-2 text-sm font-medium hover:shadow-sm transition-shadow"
-                          href="/classes#schedule"
-                        >
-                          See Full Schedule
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </TracingBeam>
+                  ]}
+                />
+              </div>
+
+              <div className="mt-8">
+                <a
+                  href="/classes"
+                  className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+                >
+                  See Full Schedule
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 md:px-8 bg-muted">
-        <div className="max-w-7xl mx-auto">
-          <FeaturesGrid
-            badge="THE ZENFLOW DIFFERENCE"
-            headline="A calm studio with strong structure"
-            subheadline="We keep things simple: clear class formats, consistent pacing, and teachers who offer options without making it a big deal."
-            features={[
-              {
-                title: 'Infrared warmth (not chaos)',
-                description:
-                  'Even, breathable heat that supports mobility and focus—without feeling like a performance.',
-              },
-              {
-                title: 'Breath cues you can use anywhere',
-                description:
-                  'We teach breath as a tool for effort and recovery, so the practice follows you off the mat.',
-              },
-              {
-                title: 'Props are part of the plan',
-                description:
-                  'Blocks, straps, bolsters, and blankets help you find shape without strain—especially in heat.',
-              },
-              {
-                title: 'Beginner-welcoming, not beginner-only',
-                description:
-                  'New students get clear foundations; regulars get smart progressions. Everyone gets options.',
-              },
-              {
-                title: 'Recovery built into the week',
-                description:
-                  'Slow heat, stretch, and meditation formats make consistency realistic—not just intense.',
-              },
-              {
-                title: 'Private sessions for real goals',
-                description:
-                  'Mobility, stress, sleep, strength, or recovery—1:1 sessions tailored to your body and schedule.',
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      <section id="trainers" className="py-16 md:py-24 px-4 md:px-8">
+      <section className="py-16 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <TeamGrid
-            headline="Teachers who teach to the room"
-            subheadline="Supportive, trauma-informed cues. Strong foundations. Space for your own experience. All teachers offer modifications and welcome beginners."
+            headline="Teachers who cue with care"
+            subheadline="Trauma-informed, alignment-focused, and obsessed with helping you feel safe in your body."
             members={[
               {
                 name: 'Maya Rivera',
                 role: 'Hot Yoga + Mobility',
-                bio: 'Athletic sequencing with joint-friendly options. You’ll leave feeling steady and open.',
+                bio: 'Athletic flow with precise alignment and joint-friendly options. E-RYT 500 • CPR/AED.',
               },
               {
                 name: 'Jordan Lee',
                 role: 'Breathwork Facilitator',
-                bio: 'Breath patterns for stress relief, energy, and focus—always with grounded integration.',
+                bio: 'Science-meets-spirit breath sessions designed for regulation and resilience. Breathwork Certified • Trauma-informed training.',
               },
               {
-                name: 'Priya Nair',
-                role: 'Meditation Guide',
-                bio: 'Simple practices that fit real life. Practical, calm, and deeply kind.',
+                name: 'Asha Patel',
+                role: 'Meditation + Sound',
+                bio: 'Quiet, grounded guidance with gentle sound to support deep rest. Meditation Teacher • Nidra Training.',
               },
               {
-                name: 'Sam Bennett',
+                name: 'Sam Nguyen',
                 role: 'Private Sessions',
-                bio: 'Personalized sessions blending movement, breath, and recovery work for your goals.',
+                bio: '1:1 support for pain-aware movement, stress relief, and sustainable practice. RYT 500 • Functional movement coursework.',
               },
             ]}
           />
+
+          <div className="mt-10">
+            <a
+              href="/about"
+              className="inline-flex items-center justify-center rounded-xl border bg-card px-5 py-3 font-semibold hover:shadow-sm transition-shadow"
+            >
+              Meet the Studio
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 md:px-8 bg-muted">
-        <div className="max-w-7xl mx-auto">
-          <PricingTable
-            headline="Memberships that feel simple"
-            subheadline="Pick a plan for your season—drop in, build a weekly rhythm, or go unlimited."
-            tiers={[
-              {
-                name: 'Drop-In',
-                price: '$24',
-                period: 'per class',
-                features: ['Any public class', 'Mat rental available', 'No commitment'],
-                ctaLabel: 'Choose Drop-In',
-                ctaHref: '/pricing#drop-in',
-              },
-              {
-                name: 'Flow Member',
-                price: '$129',
-                period: 'per month',
-                highlighted: true,
-                features: ['8 classes / month', 'Member booking window', '10% off workshops'],
-                ctaLabel: 'Join Flow Member',
-                ctaHref: '/pricing#flow',
-              },
-              {
-                name: 'Unlimited',
-                price: '$169',
-                period: 'per month',
-                features: ['Unlimited classes', 'Priority waitlist', 'Guest pass monthly'],
-                ctaLabel: 'Go Unlimited',
-                ctaHref: '/pricing#unlimited',
-              },
-            ]}
-          />
-          <p className="mt-6 text-sm text-muted-foreground">
-            Note: This site does not include checkout. Plan buttons can link to your external
-            booking/payment provider until you integrate payments.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 px-4 md:px-8">
+      <section className="py-16 md:py-20 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-4xl md:text-5xl">
-              Small changes, felt daily
+            <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-3xl md:text-4xl">
+              Small rituals, big shifts
             </h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Energy, sleep, posture, and calm—these are the shifts our community notices first.
-              Practice doesn’t have to be dramatic to be transformative. It just has to be steady.
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Real members sharing what changed when they committed to a steady practice—more mobility,
+              calmer focus, better sleep, and confidence in the heat.
             </p>
           </div>
 
           <div className="mt-10">
             <ParallaxScroll
               images={[
-                '/images/interior.png',
-                '/images/class-1.png',
-                '/images/class-2.png',
-                '/images/class-3.png',
-                '/images/instructor-1.png',
-                '/images/instructor-2.png',
+                '/images/zenflow-ritual-1.jpg',
+                '/images/zenflow-ritual-2.jpg',
+                '/images/zenflow-ritual-3.jpg',
+                '/images/zenflow-ritual-4.jpg',
+                '/images/zenflow-ritual-5.jpg',
+                '/images/zenflow-ritual-6.jpg',
               ]}
             />
           </div>
 
-          <div className="mt-8">
+          <div className="mt-10">
             <a
-              className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold hover:opacity-95 transition-opacity"
-              href="/classes"
+              href="/pricing"
+              className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
             >
-              Explore Classes
+              Explore Memberships
             </a>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 md:px-8 bg-muted">
+      <section className="py-16 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <TestimonialsAnimated
-            headline="What members say after a month"
-            subheadline="Real notes from real people—no hype, just honest shifts."
+            headline="What Austin is saying"
+            subheadline="A calm studio with real heat, real guidance, and real community."
             testimonials={[
               {
                 quote:
-                  'The heat is intense in the best way—my body feels more open and my mind is quieter.',
-                name: 'Alyssa P.',
-                role: 'Flow Member',
-                company: 'ZenFlow',
+                  'The heat is perfect, the cues are clear, and I never feel judged. I leave feeling strong and quiet inside.',
+                name: 'Elena M.',
+                role: 'Member · 6 months',
               },
               {
                 quote:
-                  'Breathwork Reset helped me sleep through the night for the first time in weeks.',
-                name: 'Daniel K.',
-                role: 'Breathwork attendee',
-                company: 'ZenFlow',
+                  'Breathwork Lab changed my week. I’m calmer at work and I sleep better on the nights I come in.',
+                name: 'Chris T.',
+                role: 'Drop-in',
               },
               {
                 quote:
-                  'The teachers offer options without making it a big deal. I finally feel like yoga is for me.',
-                name: 'Morgan S.',
-                role: 'Beginner',
-                company: 'ZenFlow',
+                  'Private sessions helped me rebuild confidence after an injury. Thoughtful, safe, and surprisingly empowering.',
+                name: 'Rina S.',
+                role: 'Private client',
               },
               {
                 quote:
-                  'Meditation Studio is the anchor of my week. I leave feeling like I can handle my life again.',
-                name: 'Priya R.',
-                role: 'Meditation regular',
-                company: 'ZenFlow',
+                  'Meditation + Sound is my favorite class in Austin. It’s like a reset for my whole nervous system.',
+                name: 'Devon K.',
+                role: 'Member · 1 year',
               },
             ]}
           />
         </div>
       </section>
 
-      <CTABanner
-        headline="Ready to feel better this week?"
-        description="Book a class, start with a 7-day trial, or reach out with questions. We’ll help you pick a first class that matches your energy."
-        ctaLabel="Book Now"
-        ctaHref="https://example.com/book"
-      />
+      <section className="py-16 md:py-20 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <CTASparkles
+            headline="Start with one class. Build a practice."
+            description="Choose a drop-in, a class pack, or a first-week intro—whatever makes starting easy. Tell us what you’re working with and we’ll recommend a first class that fits."
+            ctaLabel="See Pricing"
+            ctaHref="/pricing"
+          />
+          <div className="mt-4">
+            <a className="text-sm text-muted-foreground underline underline-offset-4" href="/contact">
+              Prefer to talk first? Contact the Studio
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

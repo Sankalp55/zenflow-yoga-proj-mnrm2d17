@@ -1,189 +1,167 @@
-import { FeaturesGrid } from '@/components/blocks/FeaturesGrid'
+import { BentoGrid, BentoGridItem } from '@/components/ui/effects/BentoGrid'
 import { FAQAccordion } from '@/components/blocks/FAQAccordion'
-import { CTABanner } from '@/components/blocks/CTABanner'
-import { StickyScroll as StickyScrollReveal } from '@/components/ui/effects/StickyScrollReveal'
+import { TracingBeam } from '@/components/ui/effects/TracingBeam'
 
 export default function ClassesPage() {
   return (
-    <div>
-      <section className="py-16 md:py-24 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-7">
-              <h1 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-5xl md:text-6xl">
-                Find your practice—by mood, not perfection.
-              </h1>
-              <p className="mt-5 text-muted-foreground leading-relaxed text-lg">
-                Hot yoga for strength and clarity. Meditation for steadiness. Breathwork for a reset.
-                Private sessions for personal goals. Our classes are designed to be practical and
-                supportive: clear structure, calm room energy, and options that help you stay
-                consistent.
-              </p>
+    <div className="bg-background text-foreground">
+      <section className="py-20 md:py-28 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <p className="text-sm text-muted-foreground">Classes</p>
+            <h1 className="mt-3 font-[family-name:var(--font-heading)] uppercase tracking-tight text-4xl md:text-5xl">
+              Classes designed for strength, softness, and steady breath
+            </h1>
+            <p className="mt-5 text-muted-foreground leading-relaxed">
+              Hot yoga, meditation, and breathwork—each taught with clear options and a calm pace. If you’re
+              new to heat, we’ll help you find a sustainable effort level so you leave energized, not wiped.
+            </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <a
-                  href="#schedule"
-                  className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold hover:opacity-95 transition-opacity"
-                >
-                  Book a Class
-                </a>
-                <a
-                  href="/pricing"
-                  className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold hover:shadow-sm transition-shadow"
-                >
-                  See Memberships
-                </a>
-              </div>
-
-              <div className="mt-10 rounded-2xl border border-border bg-muted p-6">
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Tip for first-timers: for hot classes, arrive 10 minutes early, bring water and a
-                  towel, and plan to take breaks. We’d rather you rest and return next week than
-                  push through and disappear for a month.
-                </p>
-              </div>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+              >
+                Book a Class
+              </a>
+              <a
+                href="/pricing"
+                className="inline-flex items-center justify-center rounded-xl border bg-card px-5 py-3 font-semibold hover:shadow-sm transition-shadow"
+              >
+                View Memberships
+              </a>
             </div>
+          </div>
 
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl border border-border bg-card shadow-sm p-6">
-                <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-2xl">
-                  What you’ll notice
-                </h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li>
-                    <span className="text-foreground font-medium">Clear pacing:</span> you’ll know
-                    what’s coming and why.
-                  </li>
-                  <li>
-                    <span className="text-foreground font-medium">Options always:</span> teachers cue
-                    levels without spotlighting anyone.
-                  </li>
-                  <li>
-                    <span className="text-foreground font-medium">Breath-led coaching:</span> effort
-                    and recovery are both part of class.
-                  </li>
-                  <li>
-                    <span className="text-foreground font-medium">A calm room:</span> doors close at
-                    start time to protect stillness.
-                  </li>
-                </ul>
-                <div className="mt-6">
-                  <a
-                    className="inline-flex items-center justify-center rounded-xl border border-border bg-muted px-4 py-2 text-sm font-medium hover:shadow-sm transition-shadow"
-                    href="https://example.com/book"
-                  >
-                    Open booking (live availability)
-                  </a>
-                </div>
-              </div>
+          <div className="rounded-3xl border bg-muted p-8">
+            <div className="rounded-3xl border bg-card p-8 shadow-sm">
+              <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-2xl">
+                A simple promise
+              </h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                We’ll cue rest, offer modifications, and keep the room temperature consistent. Your job is to
+                show up, breathe, and practice listening.
+              </p>
+              <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                <li className="rounded-xl border bg-background px-4 py-3">Arrive 10 min early</li>
+                <li className="rounded-xl border bg-background px-4 py-3">Hydrate + pace</li>
+                <li className="rounded-xl border bg-background px-4 py-3">Towel helps in heat</li>
+                <li className="rounded-xl border bg-background px-4 py-3">Options always offered</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 md:px-8 bg-muted">
-        <div className="max-w-7xl mx-auto">
-          <FeaturesGrid
-            badge="CLASS TYPES"
-            headline="Choose a format that matches your day"
-            subheadline="Each format includes breath cues and modifications. You’ll be guided, not pushed."
-            features={[
-              {
-                title: 'Hot Flow',
-                description: 'Strength + mobility in infrared heat. A moving meditation.',
-              },
-              {
-                title: 'Slow Heat + Stretch',
-                description: 'Longer holds for hips, hamstrings, and shoulders.',
-              },
-              {
-                title: 'Meditation Studio',
-                description: 'Guided sit + quiet time + simple take-home practice.',
-              },
-              {
-                title: 'Breathwork Reset',
-                description: 'Structured breath patterns with integration and grounding.',
-              },
-              {
-                title: 'Private Sessions',
-                description: '1:1 yoga/breathwork tailored to your body and goals.',
-              },
-              {
-                title: 'Workshops (seasonal)',
-                description:
-                  'Longer sessions for technique, mobility, and nervous-system tools. Announced monthly.',
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      <section id="schedule" className="py-16 md:py-24 px-4 md:px-8">
+      <section className="py-20 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-4xl md:text-5xl">
-              Sample weekly schedule
+            <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-3xl md:text-4xl">
+              Pick your practice
             </h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              This is a preview. Final times may vary—use your booking link for live availability.
-              We aim for a steady rhythm: energize in the morning, soften later in the day, and keep
-              stillness on the calendar.
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              A quick menu to match what your body needs today—strength, recovery, regulation, or deep rest.
             </p>
           </div>
 
           <div className="mt-10">
-            <StickyScrollReveal
-              content={[
-                {
-                  title: 'Mon–Wed',
-                  description:
-                    'Hot Flow (AM) • Meditation Studio (Lunch) • Slow Heat (PM). A balanced cadence that makes consistency easier: build strength, then downshift.',
-                },
-                {
-                  title: 'Thu',
-                  description:
-                    'Breathwork Reset (PM) • Slow Heat + Stretch (Late PM). Thursday is our nervous-system night—practice, then integrate.',
-                },
-                {
-                  title: 'Fri',
-                  description:
-                    'Hot Flow (AM) • Candlelit Meditation (PM). A clean finish to the week, with a quieter landing before the weekend.',
-                },
-                {
-                  title: 'Sat',
-                  description:
-                    'Hot Flow (AM) • Mobility + Stretch (Late AM). Community favorite: move, sweat, then open the joints.',
-                },
-                {
-                  title: 'Sun',
-                  description:
-                    'Restorative Slow Heat • Breathwork + Journaling. Sunday is for reset—less effort, more recovery.',
-                },
-              ]}
-            />
-          </div>
-
-          <div className="mt-8">
-            <a
-              className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold hover:opacity-95 transition-opacity"
-              href="https://example.com/book"
-            >
-              Open Booking
-            </a>
+            <BentoGrid>
+              <BentoGridItem
+                title="Hot Flow"
+                description="Vinyasa-based, strength-forward, options for all levels. 60 min • 95–100°F • Core + balance emphasis."
+              />
+              <BentoGridItem
+                title="Hot Slow + Deep Stretch"
+                description="Long holds and mindful transitions in gentle heat. 75 min • 90–95°F • Hips/hamstrings/shoulders."
+              />
+              <BentoGridItem
+                title="Breathwork Lab"
+                description="Guided breath with integration—no hype, just regulation. 45 min • Room temp • Beginner-friendly."
+              />
+              <BentoGridItem
+                title="Meditation + Sound"
+                description="Breath-led meditation with bowls and calming sound. 45 min • Low light • Great for sleep support."
+              />
+              <BentoGridItem
+                title="Private Sessions"
+                description="1:1 yoga, breath coaching, or a blended session. 60 min • Customized plan • Great for injuries + goals."
+              />
+            </BentoGrid>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 md:px-8 bg-muted">
+      <section className="py-20 md:py-28 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <TracingBeam>
+            <div className="max-w-3xl">
+              <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-3xl md:text-4xl">
+                Weekly schedule snapshot
+              </h2>
+              <p className="mt-3 text-muted-foreground leading-relaxed">
+                A simple, consistent cadence—so your practice becomes automatic. For the most up-to-date
+                schedule and availability, message us and we’ll help you find the best first class.
+              </p>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  title: 'Mon–Thu',
+                  description: 'Morning Hot Flow + evening Hot Slow rotation.',
+                  meta: ['Morning: 6:30a / 8:00a', 'Evening: 5:30p / 7:00p'],
+                },
+                {
+                  title: 'Friday',
+                  description: 'Breathwork Lab + gentle heat stretch to close the week.',
+                  meta: ['Evening: 6:00p'],
+                },
+                {
+                  title: 'Weekend',
+                  description: 'Meditation + Sound plus longer Hot Flow blocks.',
+                  meta: ['Sat: 9:00a / 11:00a', 'Sun: 10:00a'],
+                },
+              ].map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-3xl border bg-card/80 backdrop-blur shadow-sm p-7 hover:shadow-md transition-shadow"
+                >
+                  <h3 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-2xl">
+                    {card.title}
+                  </h3>
+                  <p className="mt-3 text-muted-foreground leading-relaxed">{card.description}</p>
+                  <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+                    {card.meta.map((m) => (
+                      <li key={m} className="rounded-xl border bg-background px-4 py-2">
+                        {m}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+              >
+                Ask About Today’s Classes
+              </a>
+            </div>
+          </TracingBeam>
+        </div>
+      </section>
+
+      <section id="what-to-expect" className="py-20 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-4xl md:text-5xl">
-              What to expect
+            <h2 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-3xl md:text-4xl">
+              What to expect (especially if it’s your first hot class)
             </h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              A calm environment with clear structure—so you can relax into the work. If you’re
-              unsure where to start, choose Slow Heat + Stretch or Meditation Studio and tell your
-              teacher it’s your first visit.
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              We keep it welcoming, clear, and grounded—no performance required. Heat can feel intense at
+              first; your first win is learning how to pace and breathe.
             </p>
           </div>
 
@@ -192,28 +170,25 @@ export default function ClassesPage() {
               {
                 title: 'Arrive 10 minutes early',
                 description:
-                  'Settle in, hydrate, and choose props. Doors close at start time to keep the room quiet.',
+                  'We’ll get you set up, answer questions, and help you choose a spot that feels comfortable.',
               },
               {
-                title: 'Heat with intention',
+                title: 'Hydrate + pace yourself',
                 description:
-                  'Our hot classes use infrared warmth. You’ll get options to scale intensity at any time.',
+                  'Heat is a tool—rest is part of the practice. Child’s pose is always welcome, anytime.',
               },
               {
-                title: 'Props are encouraged',
+                title: 'Bring a towel (or rent one)',
                 description:
-                  'Blocks, straps, bolsters, and blankets help you access shape without strain.',
+                  'For hot classes, you’ll want grip. A mat towel helps a lot, especially as you build heat tolerance.',
               },
               {
-                title: 'Leave with a practice',
+                title: 'Modifications are built-in',
                 description:
-                  'We offer simple breath or reflection prompts you can use at home between classes.',
+                  'We cue options throughout so you can find your edge without strain—and keep showing up consistently.',
               },
             ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-border bg-card shadow-sm p-6 hover:shadow-md transition-shadow"
-              >
+              <div key={item.title} className="rounded-3xl border bg-card p-7 shadow-sm">
                 <h3 className="font-[family-name:var(--font-heading)] uppercase tracking-tight text-2xl">
                   {item.title}
                 </h3>
@@ -224,43 +199,36 @@ export default function ClassesPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 md:px-8">
-        <div className="max-w-4xl mx-auto">
+      <section id="faq" className="py-20 md:py-28 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
           <FAQAccordion
-            headline="Quick FAQs"
-            subheadline="If you’re new, start here."
+            headline="Class FAQs"
+            subheadline="Quick answers so you can show up with confidence."
             items={[
               {
-                question: 'Do I need yoga experience?',
+                question: 'Do I need to be flexible to start?',
                 answer:
-                  'No. We cue options and encourage rest whenever needed. Beginners are welcome in all classes, and our teachers will help you find a pace that feels supportive.',
+                  'No. Flexibility is a result, not a requirement. We offer options and props-friendly cues so you can build range of motion over time.',
+              },
+              {
+                question: 'How hot is “hot”?',
+                answer:
+                  'Most hot classes are 95–100°F. We keep airflow steady and encourage breaks. Your first goal is steady breathing, not pushing intensity.',
               },
               {
                 question: 'What should I bring?',
                 answer:
-                  'A mat, towel for hot classes, and water. If you forget something, rentals can be offered depending on current studio setup.',
+                  'Water, a mat, and a towel for hot classes. We have rentals and props in-studio, and we’ll help you get set up if it’s your first visit.',
               },
               {
-                question: 'Is the heat safe?',
+                question: 'Is breathwork intense?',
                 answer:
-                  'Most people adapt quickly. If you’re pregnant or have medical concerns, consult a clinician and let your teacher know. You can always step out or rest—listening to your body is part of the practice.',
-              },
-              {
-                question: 'Can I do breathwork if I feel anxious?',
-                answer:
-                  'Yes—tell the facilitator. We offer grounding options and you can pause at any time. Breathwork is always invitational, never forced.',
+                  'We keep it regulated and supportive, with clear consent-based guidance and integration time so you leave grounded—not spun up.',
               },
             ]}
           />
         </div>
       </section>
-
-      <CTABanner
-        headline="Not sure which class to book first?"
-        description="Send us a quick note with your goals (stress, sleep, mobility, strength) and we’ll recommend a great first class."
-        ctaLabel="Contact ZenFlow"
-        ctaHref="/contact#form"
-      />
     </div>
   )
 }

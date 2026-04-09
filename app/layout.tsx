@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Anton, Montserrat } from 'next/font/google'
-import { NavbarFloating } from '@/components/blocks/NavbarFloating'
+import { NavbarMinimal } from '@/components/blocks/NavbarMinimal'
 import { FooterMultiColumn } from '@/components/blocks/FooterMultiColumn'
 
 const bodyFont = Montserrat({
@@ -18,27 +18,17 @@ const headingFont = Anton({
 export const metadata: Metadata = {
   title: 'ZenFlow Yoga Studio — Hot Yoga, Meditation & Breathwork in Austin, TX',
   description:
-    'ZenFlow Yoga Studio in Austin, TX offers hot yoga, meditation, breathwork, and private sessions. Earthy, peaceful studio vibes with supportive teachers and simple memberships.',
-  metadataBase: new URL('https://example.com'),
-  openGraph: {
-    title: 'ZenFlow Yoga Studio — Hot Yoga, Meditation & Breathwork in Austin, TX',
-    description:
-      'Hot yoga, meditation, breathwork, and private sessions—rooted in Austin. Supportive teachers, calm studio, simple memberships.',
-    url: 'https://example.com',
-    siteName: 'ZenFlow Yoga Studio',
-    type: 'website',
-  },
-  robots: { index: true, follow: true },
+    'ZenFlow Yoga Studio in Austin offers hot yoga, meditation, breathwork, and private sessions. A peaceful, natural studio with earthy tones and supportive teaching.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${bodyFont.className} ${bodyFont.variable} ${headingFont.variable} bg-background text-foreground`}
+        className={`${bodyFont.className} ${headingFont.variable} bg-background text-foreground antialiased`}
       >
-        <NavbarFloating
-          logo="ZenFlow Yoga Studio"
+        <NavbarMinimal
+          logo="ZenFlow"
           navItems={[
             { label: 'Home', href: '/' },
             { label: 'Offerings', href: '/offerings' },
@@ -48,37 +38,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             { label: 'Contact', href: '/contact' },
           ]}
           ctaLabel="Book"
-          ctaHref="https://example.com/book"
+          ctaHref="/contact"
         />
         <main>{children}</main>
         <FooterMultiColumn
           brand="ZenFlow Yoga Studio"
-          description="Hot yoga, breathwork, and meditation—rooted in Austin. Come for the heat, stay for the steadiness: supportive teachers, thoughtful programming, and a studio that feels calm the moment you walk in."
+          description="ZenFlow is a warm, plant-filled studio in Central Austin offering hot yoga, breathwork, and meditation. Come for strength and mobility, stay for steadier breath and a calmer nervous system."
           columns={[
             {
-              title: 'Offerings',
+              title: 'Explore',
               links: [
-                { label: 'Hot Yoga', href: '/offerings#hot-yoga' },
-                { label: 'Meditation', href: '/offerings#meditation' },
-                { label: 'Breathwork', href: '/offerings#breathwork' },
-                { label: 'Private Sessions', href: '/offerings#privates' },
+                { label: 'Offerings', href: '/offerings' },
+                { label: 'Classes', href: '/classes' },
+                { label: 'Pricing', href: '/pricing' },
+                { label: 'About', href: '/about' },
               ],
             },
             {
-              title: 'Plan your visit',
+              title: 'Get Started',
               links: [
-                { label: 'Classes & Schedule', href: '/classes#schedule' },
-                { label: 'Pricing', href: '/pricing#plans' },
-                { label: 'Start a Trial', href: '/pricing#trial' },
-                { label: 'Contact', href: '/contact#form' },
+                { label: 'Book / Ask a Question', href: '/contact' },
+                { label: 'First Week Intro', href: '/pricing' },
+                { label: 'Private Sessions', href: '/pricing#private-sessions' },
               ],
             },
             {
-              title: 'Company',
+              title: 'Studio',
               links: [
-                { label: 'About ZenFlow', href: '/about' },
-                { label: 'Meet the Teachers', href: '/#trainers' },
-                { label: 'Location & Parking', href: '/contact#location' },
+                { label: 'Hours + Location', href: '/contact' },
+                { label: 'What to Bring', href: '/classes#what-to-expect' },
+                { label: 'Class FAQs', href: '/classes#faq' },
               ],
             },
           ]}

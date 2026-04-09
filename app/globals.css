@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ZenFlow palette (HSL derived from provided hex) */
+  --background: 40 50% 96%; /* #FAF7F0 */
+  --foreground: 145 16% 14%; /* #1E2A22 */
+
+  --primary: 151 38% 30%; /* #2F6B4F */
+  --primary-foreground: 44 39% 94%; /* #F7F3EA */
+
+  --secondary: 38 36% 75%; /* #D9C7A3 */
+  --secondary-foreground: 37 25% 14%; /* #2B241A */
+
+  --accent: 15 52% 54%; /* #C76B4B */
+  --accent-foreground: 30 100% 97%; /* #FFF7F0 */
+
+  --muted: 38 33% 90%; /* #EFE7DA */
+  --muted-foreground: 145 10% 32%; /* #4A5A50 */
+
+  --card: 0 0% 100%; /* #FFFFFF */
+  --border: 36 22% 81%; /* #D9D0C2 */
+  --ring: 151 38% 30%; /* #2F6B4F */
+}
+
+.dark {
+  /* App is light-mode by blueprint, but keep a sane dark theme for future use */
+  --background: 145 16% 10%;
+  --foreground: 44 39% 94%;
+
+  --primary: 151 38% 40%;
+  --primary-foreground: 145 16% 10%;
+
+  --secondary: 37 25% 20%;
+  --secondary-foreground: 44 39% 94%;
+
+  --accent: 15 52% 60%;
+  --accent-foreground: 145 16% 10%;
+
+  --muted: 145 12% 16%;
+  --muted-foreground: 38 33% 85%;
+
+  --card: 145 16% 12%;
+  --border: 145 10% 22%;
+  --ring: 151 38% 45%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    text-rendering: geometricPrecision;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: theme(fontFamily.body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: theme(fontFamily.heading);
+  }
+}
